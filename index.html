@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ask TROLLO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #00ff99;
+      font-family: 'Press Start 2P', monospace;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 span {
+      color: yellow;
+    }
+    input {
+      padding: 15px;
+      width: 60%;
+      background: #111;
+      color: #0f0;
+      border: 2px solid #0f0;
+    }
+    button {
+      padding: 15px 30px;
+      background: #0f0;
+      color: #111;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-family: 'Press Start 2P', monospace;
+    }
+    #response {
+      margin-top: 30px;
+      font-size: 18px;
+      padding: 20px;
+      border: 2px dashed #0f0;
+      display: inline-block;
+      min-height: 50px;
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .topbar {
+      margin-bottom: 40px;
+    }
+    .topbar img {
+      height: 80px;
+    }
+    .buy-btn {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: yellow;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <img src="https://raw.githubusercontent.com/TROLLOMEME/TROLLO/main/logo.png" alt="TROLLO Logo" />
+    <h1>Ask <span>TROLLO</span></h1>
+  </div>
+
+  <input type="text" id="question" placeholder="Ask anything..." />
+  <br/><br/>
+  <button onclick="getAnswer()">Ask</button>
+
+  <div id="response"></div>
+
+  <br/>
+  <a class="buy-btn" href="https://pump.fun/coin/FyUbT54jnvMiksJxaJ3o3Whp37ucKv9DP4fAwv8Ypump" target="_blank">
+    Buy TROLLO
+  </a>
+
+  <script>
+    const answers = [
+      "Sounds like a rug pull, bro.",
+      "DYOR or die broke.",
+      "Use a cold wallet. Not your feelings.",
+      "You bought the top again, didn’t you?",
+      "Wait for the dip. Or cry later.",
+      "TROLLO never fomo’s. Be like TROLLO."
+    ];
+
+    function getAnswer() {
+      const input = document.getElementById("question").value;
+      const output = document.getElementById("response");
+
+      if (input.trim() === "") {
+        output.innerText = "Type something, rookie.";
+        return;
+      }
+
+      const random = Math.floor(Math.random() * answers.length);
+      const text = answers[random];
+      output.innerText = "";
+
+      let i = 0;
+      const typeInterval = setInterval(() => {
+        if (i < text.length) {
+          output.innerText += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(typeInterval);
+        }
+      }, 30);
+    }
+  </script>
+</body>
+</html>
