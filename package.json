@@ -1,7 +1,6 @@
 {
-  "name": "trollo-chatbot",
+  "name": "trollo-webapp",
   "version": "1.0.0",
-  "description": "ChatGPT integrated with Next.js for TROLLO",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
