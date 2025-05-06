@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Talk to TROLLO</title>
+  <title>Chat with TROLLO</title>
 </head>
-<body style="font-family:sans-serif; padding:20px;">
-  <h2>Ask TROLLO</h2>
-  <input type="text" id="userInput" placeholder="Type your question..." style="width: 300px; padding: 8px;" />
-  <button onclick="sendMessage()" style="padding: 8px;">Send</button>
-  <div id="responseBox" style="margin-top: 20px; white-space: pre-wrap;"></div>
+<body>
+  <h2>Talk to TROLLO</h2>
+  <input type="text" id="userInput" placeholder="Ask something..." />
+  <button onclick="sendMessage()">Send</button>
+  <div id="responseBox" style="margin-top:20px;"></div>
 
   <script>
     async function sendMessage() {
       const input = document.getElementById("userInput").value;
-
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input })
       });
-
       const data = await res.json();
       document.getElementById("responseBox").innerText = "TROLLO: " + data.reply;
     }
